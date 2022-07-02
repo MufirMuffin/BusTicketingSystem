@@ -30,7 +30,7 @@
 <link href="assets/css/sidebars.css" rel="stylesheet">
 <link href="assets/css/menu_student.css" rel="stylesheet">
 
-<title>Insert title here</title>
+<title>List Trip</title>
 </head>
 <body style="height: 100%;">
 
