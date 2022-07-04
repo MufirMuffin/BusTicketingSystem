@@ -6,7 +6,7 @@ public class admin {
 	private String adminpassword;
 	private String adminphoneno;
 	private String adminemail;
-	
+	private boolean valid;
 	public admin() {
 		
 	}
@@ -50,6 +50,11 @@ public class admin {
 	public void setAdminemail(String adminemail) {
 		this.adminemail = adminemail;
 	}
-	
+	public boolean isValid() {
+		return valid;
+	}
+	public void setValid(boolean valid) {
+		this.valid = valid;
+	}
 	
 }
