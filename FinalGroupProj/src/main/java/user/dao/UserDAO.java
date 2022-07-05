@@ -27,7 +27,6 @@ public class UserDAO {
 	
 	//ADMIN METHODS DAO - MUST HAVE ITS CONTROLLER
 	//1.0 LOGIN ADMIN
-	
 	public static admin loginAdmin(admin a) {
 		
 		adminid = a.getAdminid();
@@ -58,7 +57,39 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return a;	
-		
-		
 	}
+	
+	//2.0 GET ADMIN BY ADMINID
+	public static Object getAdminByadminid(int adminid) {
+
+		admin admin = new admin();
+		
+		try {
+			//CONNECT TO DB
+			con = ConnectionManager.getConnection();
+
+			//CREATE STATEMENT
+			ps = con.prepareStatement("SELECT * FROM staff WHERE adminid = ?");
+			ps.setInt(1, adminid);
+
+			//EXECUTE QUERY
+			rs = ps.executeQuery();
+
+			if(rs.next()) {
+				admin.setAdminid(rs.getInt("adminid"));
+				admin.setAdminname(rs.getString("adminname"));
+				admin.setAdminphoneno(rs.getString("adminphoneno"));
+				admin.setAdminemail(rs.getString("adminemail"));
+			}
+
+			//CLOSE CONNECTION
+			con.close();
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return admin;
+	}
+	
+	
 }

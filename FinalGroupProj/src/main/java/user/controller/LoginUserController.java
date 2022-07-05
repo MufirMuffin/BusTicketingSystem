@@ -1,27 +1,23 @@
-package busmanagement.controller;
+package user.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import user.dao.UserDAO;
-
 /**
- * Servlet implementation class AdminMenuController
+ * Servlet implementation class LoginUserController
  */
-@WebServlet("/AdminMenuController")
-public class AdminMenuController extends HttpServlet {
+@WebServlet("/LoginUserController")
+public class LoginUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMenuController() {
+    public LoginUserController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +26,16 @@ public class AdminMenuController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int adminid = (int) request.getSession().getAttribute("currentSessionUser");
-		request.setAttribute("admin", UserDAO.getAdminByAdminid(adminid));
-		RequestDispatcher view = request.getRequestDispatcher("admin/menu_admin.jsp");
-		view.forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
 
 }
